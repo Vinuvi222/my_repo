@@ -5,13 +5,13 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
 // Import routes
-import driverRoutes from '../routes/driver.routes.js';
-import loginRoutes from '../routes/auth.route.js';
-import addingRoutes from '../routes/adding.routes.js';
-import locationRoutes from '../routes/location.routes.js';
-import scheduleRoutes from '../routes/schedule.routes.js';
-import permitRoutes from '../routes/permit.routes.js';
-import busRoutes from '../routes/bus.routes.js';
+import driverRoutes from './routes/driver.routes.js';
+import loginRoutes from './routes/auth.route.js';
+import addingRoutes from './routes/adding.routes.js';
+import locationRoutes from './routes/location.routes.js';
+import scheduleRoutes from './routes/schedule.routes.js';
+import permitRoutes from './routes/permit.routes.js';
+import busRoutes from './routes/bus.routes.js';
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.use(express.json());
 
 dotenv.config();
 
-//const PORT = process.env.PORT || 8070;
+const PORT = process.env.PORT || 8070;
 const URL = process.env.MONGODB_URL;
 
 mongoose.connect(URL);
@@ -161,6 +161,6 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   return R * c; // Distance in meters
 }
 
-/* app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
-}); */
+});
